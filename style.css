@@ -1,58 +1,79 @@
+/* styles.css */
+
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #282c34;
+    font-family: Arial, sans-serif;
+    background-color: #2b2e4a;
     margin: 0;
+    padding: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    color: rgb(0, 0, 0);
-}
-
-.container {
-    text-align: center;
-}
-
-.login-container {
-    width: 300px;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.form-group {
-    margin-bottom: 16px;
-    text-align: left;
-}
-
-.welcome-container{
-    color: white !important;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
 }
 
 label {
+    display: block;
     margin-bottom: 8px;
+    color: #333;
 }
 
 input {
+    width: 100%;
     padding: 10px;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
-button {
-    background-color: #61dafb;
-    color: white;
-    padding: 12px;
+input[type="submit"] {
+    background-color: #4caf50; /* Warna hijau */
+    color: #fff; /* Warna teks putih */
     border: none;
+    padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #4fa3d1;
+span{
+    margin-top: -20px;
+}
+
+/* Efek hover pada tombol login */
+input[type="submit"]:hover {
+    background-color: #0052cc; 
+}
+
+input[type="checkbox"] {
+    margin-top: 8px;
+    margin-left: 190px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-left: -190px;
+}
+
+.checkbox-container label {
+    margin-bottom: 0;
+    margin-top: -6px;
+    margin-left: -185px;
+    font-size: 12px;
+}
+
+.error {
+    color: red;
 }

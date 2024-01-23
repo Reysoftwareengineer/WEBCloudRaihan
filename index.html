@@ -1,31 +1,145 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Landing Page Login</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2b2e4a;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        /* Tambahkan warna pada tombol login */
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Efek hover pada tombol login */
+        input[type="submit"]:hover {
+            background-color: #0054d3;
+        }
+
+        .error {
+            color: red;
+        }
+
+        /* Style untuk checkbox "Show Password" */
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .checkbox-container input[type="checkbox"] {
+            margin-top: -5px;
+            margin-left: -190px;
+        }
+        
+        .checkbox-container label {
+            margin-top: -10px;
+            margin-left: -190px; /* Jarak antara checkbox dan teks "Show Password" */
+            color: #333; /* Warna teks label "Show Password" */
+            cursor: pointer;
+            font-size: 12px;
+            color: rgb(83, 83, 255);
+        }
+        
+        @media (max-width: 600px) {
+            form {
+                max-width: 80%; /* Menyesuaikan lebar form dengan lebar layar perangkat seluler */
+            }
+            .checkbox-container label {
+                margin-top: -12px;
+                margin-left: -145px;
+            }
+            .checkbox-container input[type="checkbox"] {
+                margin-left: -140px;
+            }
+
+        }
+
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="login-container">
-            <h2>Login</h2>
-            <form id="loginForm" action="login.php" method="post">
-                <label for="username">Username:</label>
-                <input type="text" name="username" required>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
 
-                <label for="password">Password:</label>
-                <input type="password" name="password" id="passwordInput" required>
-
-                <!-- Tambahkan checkbox untuk "Show Password" -->
-                <input type="checkbox" id="showPasswordCheckbox" onclick="showPassword()"> 
-                <label for="showPasswordCheckbox">Show Password</label>
-
-                <button type="submit">Login</button>
-            </form>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <!-- Checkbox "Show Password" -->
+        <div class="checkbox-container">
+            <input type="checkbox" onclick="showPassword()"> 
+            <label for="showPassword">Show Password</label>
         </div>
-    </div>
-    <script src="script.js"></script>
+
+        <input type="submit" value="Login">
+    </form>
+
+    <script>
+        // Fungsi untuk menampilkan atau menyembunyikan password
+        function showPassword() {
+            var passwordInput = document.getElementById("password");
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        }
+
+        // Fungsi untuk menangani submit formulir
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Periksa apakah username dan password adalah "raihan"
+            if (username === "raihan" && password === "softwaredeveloper") {
+                alert("Login berhasil!");
+                // Redirect ke halaman setelah login (ganti URL sesuai kebutuhan)
+                window.location.href = "welcome.html?username=" + encodeURIComponent(username);
+            } else {
+                alert("Login gagal. Silakan coba lagi.");
+            }
+        });
+    </script>
 </body>
 </html>

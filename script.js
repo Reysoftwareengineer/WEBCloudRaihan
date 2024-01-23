@@ -1,13 +1,8 @@
-document.getElementById("loginForm").addEventListener("submit", function() {
-    document.querySelector(".login-container").classList.add("logged-in");
-});
+// script.js
 
 function showPassword() {
-    var passwordInput = document.getElementById("passwordInput");
-    var showPasswordCheckbox = document.getElementById("showPasswordCheckbox");
-
-    // Ganti jenis input password menjadi teks jika checkbox dicentang
-    if (showPasswordCheckbox.checked) {
+    var passwordInput = document.getElementById("password");
+    if (passwordInput.type === "password") {
         passwordInput.type = "text";
     } else {
         passwordInput.type = "password";

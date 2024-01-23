@@ -1,41 +1,93 @@
-<?php
-// Periksa apakah pengguna sudah login
-session_start();
-if (!isset($_SESSION['username'])) {
-    header('Location: index.php'); // Redirect kembali ke halaman login jika belum login
-    exit();
-}
-
-// Ambil nama pengguna dari session
-$username = $_SESSION['username'];
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selamat Datang</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Welcome Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2b2e4a;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        .welcome-container {
+            text-align: center;
+        }
+
+        .welcome-container p {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        .welcome-container a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #4285f4; /* Warna biru untuk Cloud 1, 2, dan 3 */
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .welcome-container a:hover {
+            background-color: #3366cc; /* Warna biru yang lebih gelap pada hover */
+        }
+
+        .logout-button {
+            background-color: #ff3333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .logout-button:hover {
+            background-color: #cc0000;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <div class="welcome-container">
-            <h2>Selamat Datang, <?php echo $username; ?>!</h2>
-            <p>Ini adalah halaman WEB CLOUD RAIHAN</p>
-            <!-- Tambahkan kotak link untuk "Cloud 1" -->
-            <div class="cloud-link">
-                <a href="https://drive.google.com/drive/folders/1KU5PRMR_IlRlx2eeGkspH4AFJq5PSp_Q?usp=drive_link">Cloud 1</a>
-            </div>
-            <br><br>
-            <a href="logout.php">Logout</a>
-        </div>
+    <div class="welcome-container">
+        <p>Selamat datang, <span id="username"></span>!</p>
+        <p>Terima kasih telah menggunakan layanan kami.</p>
+
+        <!-- "Cloud 1" Box -->
+        <a href="https://drive.google.com/drive/folders/1KU5PRMR_IlRlx2eeGkspH4AFJq5PSp_Q?usp=sharing" target="_blank" class="cloud-box">Cloud 1</a>
+
+        <!-- "Cloud 2" Box -->
+        <a href="#" target="_blank" class="cloud-box">Cloud 2</a>
+
+        <!-- "Cloud 3" Box -->
+        <a href="#" target="_blank" class="cloud-box">Cloud 3</a>
+
+        <!-- Tombol Logout -->
+        <button class="logout-button" onclick="logout()">Logout</button>
     </div>
+
     <script>
-        // Tambahkan script untuk mengalihkan halaman setelah beberapa detik
-        setTimeout(function() {
-            window.location.href = "new_page.php"; // Ganti "new_page.php" dengan halaman yang diinginkan
-        }, 5000); // Ubah angka 5000 menjadi jumlah milidetik yang diinginkan
+        // Ambil username dari parameter URL
+        var urlParams = new URLSearchParams(window.location.search);
+        var username = urlParams.get('username');
+
+        // Tampilkan username di halaman
+        document.getElementById("username").innerText = username;
+
+        // Fungsi untuk logout
+        function logout() {
+            // Redirect ke halaman login setelah logout
+            window.location.href = "index.html";
+        }
     </script>
 </body>
 </html>
