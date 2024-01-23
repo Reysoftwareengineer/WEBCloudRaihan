@@ -28,7 +28,7 @@ if ($result->num_rows > 0) {
     $_SESSION['username'] = $username;
 
     // Redirect ke halaman selamat datang dengan nama pengguna
-    header('Location: welcome.php');
+    header('Location: welcome.html');
 } else {
     echo "Login gagal. Periksa kembali username dan password Anda.";
 }
