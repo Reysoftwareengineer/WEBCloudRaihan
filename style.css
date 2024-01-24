@@ -48,7 +48,7 @@ input {
 
 /* Tambahkan warna pada tombol login */
 input[type="submit"] {
-    background-color: #4caf50;
+    background-color: #0054d3;
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -58,7 +58,7 @@ input[type="submit"] {
 
 /* Efek hover pada tombol login */
 input[type="submit"]:hover {
-    background-color: #0054d3;
+    background-color: #003483;
 }
 
 .error {
