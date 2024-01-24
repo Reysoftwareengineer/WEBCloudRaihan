@@ -1,5 +1,3 @@
-/* styles.css */
-
 body {
     font-family: Arial, sans-serif;
     background-color: #2b2e4a;
@@ -9,15 +7,28 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-}
+    overflow: hidden;
 
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.judul{
+    margin-top: -50px;
+    font-size: 40px;
+    padding-bottom: 50px;
+    color: white !important;
+}
 form {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.377);
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    width: 250px;
+    
 }
 
 label {
@@ -30,50 +41,60 @@ input {
     width: 100%;
     padding: 10px;
     margin-bottom: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid #cccccca6;
     border-radius: 4px;
     box-sizing: border-box;
 }
 
+/* Tambahkan warna pada tombol login */
 input[type="submit"] {
-    background-color: #4caf50; /* Warna hijau */
-    color: #fff; /* Warna teks putih */
+    background-color: #4caf50;
+    color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
 }
 
-span{
-    margin-top: -20px;
-}
-
 /* Efek hover pada tombol login */
 input[type="submit"]:hover {
-    background-color: #0052cc; 
+    background-color: #0054d3;
 }
 
-input[type="checkbox"] {
-    margin-top: 8px;
-    margin-left: 190px;
+.error {
+    color: red;
 }
 
+/* Style untuk checkbox "Show Password" */
 .checkbox-container {
     display: flex;
     align-items: center;
 }
 
 .checkbox-container input[type="checkbox"] {
-    margin-left: -190px;
+    margin-top: -5px;
+    margin-left: -110px;
 }
 
 .checkbox-container label {
-    margin-bottom: 0;
-    margin-top: -6px;
-    margin-left: -185px;
+    margin-top: -10px;
+    margin-left: -115px; /* Jarak antara checkbox dan teks "Show Password" */
+    color: #333; /* Warna teks label "Show Password" */
+    cursor: pointer;
     font-size: 12px;
+    color: rgb(255, 255, 255);
 }
 
-.error {
-    color: red;
+@media (max-width: 600px) {
+    form {
+        max-width: 80%; /* Menyesuaikan lebar form dengan lebar layar perangkat seluler */
+    }
+    .checkbox-container label {
+        margin-top: -12px;
+        margin-left: -108px;
+    }
+    .checkbox-container input[type="checkbox"] {
+        margin-left: -105px;
+    }
+
 }

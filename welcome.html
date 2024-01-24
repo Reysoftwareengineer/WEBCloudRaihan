@@ -55,10 +55,27 @@
         .logout-button:hover {
             background-color: #cc0000;
         }
+
+        .settings-button {
+            background-color: #ff3333; /* Warna biru untuk Setting */
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            position: absolute;
+            top: 10px;
+            right: 100px;
+        }
+
+        .settings-button:hover {
+            background-color: #cc0000; /* Warna biru yang lebih gelap pada hover */
+        }
     </style>
 </head>
 <body>
     <div class="welcome-container">
+        <!-- <button class="settings-button" onclick="goToSettings()">Setting</button> -->
+
         <p>Selamat datang, <span id="username"></span>!</p>
         <p>Terima kasih telah menggunakan layanan kami.</p>
 
@@ -87,6 +104,12 @@
         function logout() {
             // Redirect ke halaman login setelah logout
             window.location.href = "index.html";
+        }
+
+        // Fungsi untuk menuju halaman Setting
+        function goToSettings() {
+            // Redirect ke halaman setting
+            window.location.href = "setting.html?username=" + encodeURIComponent(username);
         }
     </script>
 </body>
